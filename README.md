@@ -23,6 +23,7 @@ Navigate to the angular-project directory and install dependencies:
 cd angular-project
 npm install
 
+
 Running the Project
 Angular Frontend
 Start the Angular development server:
@@ -32,4 +33,6 @@ ng serve
 Navigate to http://localhost:4200/ in your browser to view the application.
 
 
-Author Mthunzi Siputuma
+**PLEASE NOTE :   RUN BOTH PROJECTS AT THE SAME TIME!!!.
+
+Author: Mthunzi Siputuma
