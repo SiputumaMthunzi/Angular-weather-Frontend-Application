@@ -1,4 +1,5 @@
 <div class="weather-app">
+  <h1 class="title">Weather Forecast</h1> <!-- Title with class "title" -->
   <input type="text" [(ngModel)]="city" placeholder="Enter city name">
   <button (click)="getWeather()">Get Weather</button>
   <div *ngIf="weatherData">
