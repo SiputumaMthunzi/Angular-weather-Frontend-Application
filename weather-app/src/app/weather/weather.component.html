@@ -1,0 +1,29 @@
+<div class="weather-app">
+  <input type="text" [(ngModel)]="city" placeholder="Enter city name">
+  <button (click)="getWeather()">Get Weather</button>
+  <div *ngIf="weatherData">
+    <div class="current-weather">
+      <h2>{{ city }}</h2>
+      <img [src]="getWeatherIcon(weatherData.list[0].weather[0].icon)" alt="Weather Icon">
+      <p>Temperature: {{ weatherData.list[0].main.temp }} °C</p>
+      <p>Humidity: {{ weatherData.list[0].main.humidity }}%</p>
+      <p>Wind Speed: {{ weatherData.list[0].wind.speed }} km/h</p>
+    </div>
+    <div class="forecast">
+      <div *ngFor="let day of weatherData.list; let i = index" (click)="toggleHourlyForecast(i)">
+        <p>{{ day.dt_txt | date: 'EEE, MMM d' }}</p>
+        <img [src]="getWeatherIcon(day.weather[0].icon)" alt="Weather Icon">
+        <p>High: {{ day.main.temp_max }} °C</p>
+        <p>Low: {{ day.main.temp_min }} °C</p>
+        <div *ngIf="selectedIndex === i">
+          <div *ngFor="let hour of day.hourly">
+            <p>{{ hour.dt_txt | date: 'hh:mm a' }}</p>
+            <img [src]="getWeatherIcon(hour.weather[0].icon)" alt="Weather Icon">
+            <p>Temperature: {{ hour.main.temp }} °C</p>
+            <p>Wind Speed: {{ hour.wind.speed }} km/h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
